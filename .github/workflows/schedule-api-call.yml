@@ -1,0 +1,12 @@
+name: Schedule API Call
+
+on:
+  schedule:
+    - cron: "0 */6 * * *" # Runs every 6 hours
+
+jobs:
+  call-endpoint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API endpoint
+        run: curl -X POST "https://bsc.news/api/revalidatepath?path=/etf-data"
